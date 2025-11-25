@@ -1,0 +1,12 @@
+11
+1|Solo Leveling|Chugong|2016
+2|The Fault in Our Stars|John Green|2012
+3|Looking for Alaska|John Green|2005
+4|Paper Towns|John Green|2008
+5|One Piece|Eiichiro Oda|1997
+6|Naruto|Masashi Kishimoto|1999
+7|Attack on Titan|Hajime Isayama|2009
+8|Harry Potter|J.K. Rowling|1997
+9|The Alchemist|Paulo Coelho|1988
+10|1984|George Orwell|1949
+5|Spy X Family|Tatsuya Endo|2008
