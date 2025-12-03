@@ -1,0 +1,11 @@
+# Build artifacts
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# VS Code settings
+.vscode/
+
+# Compiled binaries
+lms

@@ -1,6 +1,42 @@
 #include "sync.h"
 #include <stdio.h>
 
+#ifdef _WIN32
+CRITICAL_SECTION catalogLock;
+HANDLE logSem;
+
+void initLocks(void)
+{
+    InitializeCriticalSection(&catalogLock);
+    logSem = CreateSemaphore(NULL, 1, 1, NULL); // binary semaphore
+}
+
+void destroyLocks(void)
+{
+    DeleteCriticalSection(&catalogLock);
+    CloseHandle(logSem);
+}
+
+void acquireCatalog(void)
+{
+    EnterCriticalSection(&catalogLock);
+}
+
+void releaseCatalog(void)
+{
+    LeaveCriticalSection(&catalogLock);
+}
+
+void acquireLog(void)
+{
+    WaitForSingleObject(logSem, INFINITE);
+}
+
+void releaseLog(void)
+{
+    ReleaseSemaphore(logSem, 1, NULL);
+}
+#else
 pthread_mutex_t catalogLock;
 sem_t logSem;
 
@@ -35,3 +71,4 @@ void releaseLog(void)
 {
     sem_post(&logSem);
 }
+#endif

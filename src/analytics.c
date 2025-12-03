@@ -6,6 +6,20 @@ static double totalWait = 0;
 static double totalTurnaround = 0;
 static int count = 0;
 
+#ifdef _WIN32
+static LARGE_INTEGER perfFreq;
+static int freqInit = 0;
+
+// helper: diff two LARGE_INTEGER counters in ms
+static double diffMs(LARGE_INTEGER start, LARGE_INTEGER end)
+{
+    if (!freqInit) {
+        QueryPerformanceFrequency(&perfFreq);
+        freqInit = 1;
+    }
+    return (double)(end.QuadPart - start.QuadPart) * 1000.0 / (double)perfFreq.QuadPart;
+}
+#else
 // helper: diff two timespecs in ms
 static double diffMs(struct timespec start, struct timespec end)
 {
@@ -13,6 +27,7 @@ static double diffMs(struct timespec start, struct timespec end)
     double ns = (double)(end.tv_nsec - start.tv_nsec) / 1e6;
     return s + ns;
 }
+#endif
 
 void recordMetrics(Request r)
 {
