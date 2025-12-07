@@ -1,74 +1,43 @@
+// sync.c - Simple semaphore-based critical section lock (FCFS)
 #include "sync.h"
-#include <stdio.h>
 
 #ifdef _WIN32
-CRITICAL_SECTION catalogLock;
-HANDLE logSem;
+HANDLE dataLock;
 
-void initLocks(void)
-{
-    InitializeCriticalSection(&catalogLock);
-    logSem = CreateSemaphore(NULL, 1, 1, NULL); // binary semaphore
+void initLock(void) {
+    // binary semaphore (1 = available, 0 = locked)
+    dataLock = CreateSemaphore(NULL, 1, 1, NULL);
 }
 
-void destroyLocks(void)
-{
-    DeleteCriticalSection(&catalogLock);
-    CloseHandle(logSem);
+void destroyLock(void) {
+    CloseHandle(dataLock);
 }
 
-void acquireCatalog(void)
-{
-    EnterCriticalSection(&catalogLock);
+void acquireLock(void) {
+    // FCFS: processes wait in queue order
+    WaitForSingleObject(dataLock, INFINITE);
 }
 
-void releaseCatalog(void)
-{
-    LeaveCriticalSection(&catalogLock);
+void releaseLock(void) {
+    ReleaseSemaphore(dataLock, 1, NULL);
 }
 
-void acquireLog(void)
-{
-    WaitForSingleObject(logSem, INFINITE);
-}
-
-void releaseLog(void)
-{
-    ReleaseSemaphore(logSem, 1, NULL);
-}
 #else
-pthread_mutex_t catalogLock;
-sem_t logSem;
+sem_t dataLock;
 
-void initLocks(void)
-{
-    pthread_mutex_init(&catalogLock, NULL);
-    sem_init(&logSem, 0, 1); // binary semaphore
+void initLock(void) {
+    sem_init(&dataLock, 0, 1);
 }
 
-void destroyLocks(void)
-{
-    pthread_mutex_destroy(&catalogLock);
-    sem_destroy(&logSem);
+void destroyLock(void) {
+    sem_destroy(&dataLock);
 }
 
-void acquireCatalog(void)
-{
-    pthread_mutex_lock(&catalogLock);
+void acquireLock(void) {
+    sem_wait(&dataLock);
 }
 
-void releaseCatalog(void)
-{
-    pthread_mutex_unlock(&catalogLock);
-}
-
-void acquireLog(void)
-{
-    sem_wait(&logSem);
-}
-
-void releaseLog(void)
-{
-    sem_post(&logSem);
+void releaseLock(void) {
+    sem_post(&dataLock);
 }
 #endif

@@ -1,49 +1,98 @@
-#include "fileio.h"
-#include "sync.h"
+// fileio.c - Save/Load data functions
 #include <stdio.h>
-#include <time.h>
+#include "fileio.h"
+#include "book.h"
+#include "member.h"
+#include "sync.h"
 
-// save catalog to text file
-void saveCatalog(const char *path)
-{
-    acquireCatalog();
+// save books to file
+void saveBooks(const char *path) {
+    acquireLock();
     FILE *fp = fopen(path, "w");
-    if (!fp) { releaseCatalog(); return; }
-    fprintf(fp, "%d\n", numberOfBooks);
-    for (int i = 0; i < numberOfBooks; i++) {
-        fprintf(fp, "%d|%s|%s|%d\n",
-                books[i].id, books[i].name, books[i].author, books[i].year);
+    if (!fp) {
+        printf("Error: Cannot save books file.\n");
+        releaseLock();
+        return;
+    }
+    
+    fprintf(fp, "%d\n", bookCount);
+    for (int i = 0; i < bookCount; i++) {
+        fprintf(fp, "%d|%s|%s|%d|%d|%d\n",
+            books[i].id, books[i].name, books[i].author,
+            books[i].year, books[i].state, books[i].memberId);
     }
     fclose(fp);
-    releaseCatalog();
+    releaseLock();
+    printf("Books saved successfully.\n");
 }
 
-// load catalog from text file
-void loadCatalog(const char *path)
-{
-    acquireCatalog();
+// load books from file
+void loadBooks(const char *path) {
+    acquireLock();
     FILE *fp = fopen(path, "r");
-    if (!fp) { releaseCatalog(); return; }
-    if (fscanf(fp, "%d\n", &numberOfBooks) != 1) {
-        fclose(fp); releaseCatalog(); return;
+    if (!fp) {
+        releaseLock();
+        return;
     }
-    if (numberOfBooks > MAX_BOOKS) numberOfBooks = MAX_BOOKS;
-    for (int i = 0; i < numberOfBooks; i++) {
-        fscanf(fp, "%d|%49[^|]|%49[^|]|%d\n",
-               &books[i].id, books[i].name, books[i].author, &books[i].year);
+    
+    if (fscanf(fp, "%d\n", &bookCount) != 1) {
+        fclose(fp);
+        releaseLock();
+        return;
+    }
+    
+    if (bookCount > MAX_BOOKS) bookCount = MAX_BOOKS;
+    
+    for (int i = 0; i < bookCount; i++) {
+        fscanf(fp, "%d|%49[^|]|%49[^|]|%d|%d|%d\n",
+            &books[i].id, books[i].name, books[i].author,
+            &books[i].year, &books[i].state, &books[i].memberId);
     }
     fclose(fp);
-    releaseCatalog();
+    releaseLock();
 }
 
-// append transaction to log file
-void logTransaction(int userId, int bookId, char action)
-{
-    acquireLog();
-    FILE *fp = fopen("data/transactions.log", "a");
-    if (!fp) { releaseLog(); return; }
-    time_t now = time(NULL);
-    fprintf(fp, "%ld,user%d,book%d,%c\n", now, userId, bookId, action);
+// save members to file
+void saveMembers(const char *path) {
+    acquireLock();
+    FILE *fp = fopen(path, "w");
+    if (!fp) {
+        printf("Error: Cannot save members file.\n");
+        releaseLock();
+        return;
+    }
+    
+    fprintf(fp, "%d\n", memberCount);
+    for (int i = 0; i < memberCount; i++) {
+        fprintf(fp, "%d|%s|%s\n",
+            members[i].id, members[i].name, members[i].dept);
+    }
     fclose(fp);
-    releaseLog();
+    releaseLock();
+    printf("Members saved successfully.\n");
+}
+
+// load members from file
+void loadMembers(const char *path) {
+    acquireLock();
+    FILE *fp = fopen(path, "r");
+    if (!fp) {
+        releaseLock();
+        return;
+    }
+    
+    if (fscanf(fp, "%d\n", &memberCount) != 1) {
+        fclose(fp);
+        releaseLock();
+        return;
+    }
+    
+    if (memberCount > MAX_MEMBERS) memberCount = MAX_MEMBERS;
+    
+    for (int i = 0; i < memberCount; i++) {
+        fscanf(fp, "%d|%49[^|]|%3[^\n]\n",
+            &members[i].id, members[i].name, members[i].dept);
+    }
+    fclose(fp);
+    releaseLock();
 }

@@ -1,13 +1,10 @@
 #ifndef FILEIO_H
 #define FILEIO_H
 
-#include "book.h"
+// save/load functions
+void saveBooks(const char *path);
+void loadBooks(const char *path);
+void saveMembers(const char *path);
+void loadMembers(const char *path);
 
-// save/load catalog (text format)
-void saveCatalog(const char *path);
-void loadCatalog(const char *path);
-
-// transaction log
-void logTransaction(int userId, int bookId, char action);
-
-#endif // FILEIO_H
+#endif

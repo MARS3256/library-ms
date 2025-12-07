@@ -1,12 +1,11 @@
-11
-1|Solo Leveling|Chugong|2016
-2|The Fault in Our Stars|John Green|2012
-3|Looking for Alaska|John Green|2005
-4|Paper Towns|John Green|2008
-5|One Piece|Eiichiro Oda|1997
-6|Naruto|Masashi Kishimoto|1999
-7|Attack on Titan|Hajime Isayama|2009
-8|Harry Potter|J.K. Rowling|1997
-9|The Alchemist|Paulo Coelho|1988
-10|1984|George Orwell|1949
-5|Spy X Family|Tatsuya Endo|2008
+1|Solo Leveling|Chugong|2016|0|0
+2|The Fault in Our Stars|John Green|2012|0|0
+3|Looking for Alaska|John Green|2005|0|0
+4|Paper Towns|John Green|2008|0|0
+5|One Piece|Eiichiro Oda|1997|0|0
+6|Naruto|Masashi Kishimoto|1999|0|0
+7|Attack on Titan|Hajime Isayama|2009|0|0
+8|Harry Potter|J.K. Rowling|1997|0|0
+9|The Alchemist|Paulo Coelho|1988|0|0
+10|1984|George Orwell|1949|0|0
+11|Spy X Family|Tatsuya Endo|2008|0|0

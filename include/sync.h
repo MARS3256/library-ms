@@ -1,22 +1,20 @@
 #ifndef SYNC_H
 #define SYNC_H
 
+// simple semaphore-based critical section lock
+// FCFS order guaranteed by OS scheduler
+
 #ifdef _WIN32
 #include <windows.h>
-extern CRITICAL_SECTION catalogLock;
-extern HANDLE logSem;
+extern HANDLE dataLock;  // binary semaphore for data access
 #else
-#include <pthread.h>
 #include <semaphore.h>
-extern pthread_mutex_t catalogLock;
-extern sem_t logSem;
+extern sem_t dataLock;
 #endif
 
-void initLocks(void);       // call once at startup
-void destroyLocks(void);    // call before exit
-void acquireCatalog(void);  // lock before catalog access
-void releaseCatalog(void);  // unlock after catalog access
-void acquireLog(void);      // wait on log semaphore
-void releaseLog(void);      // post log semaphore
+void initLock(void);
+void destroyLock(void);
+void acquireLock(void);
+void releaseLock(void);
 
-#endif // SYNC_H
+#endif

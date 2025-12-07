@@ -1,28 +1,36 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <stddef.h>
-
 #define MAX_BOOKS 100
 
-typedef struct Book
-{
+// book states
+#define STATE_AVAILABLE 0
+#define STATE_REQUESTED 1
+#define STATE_BORROWED  2
+
+typedef struct Book {
     int id;
     char name[50];
     char author[50];
     int year;
+    int state;      // 0=AVAILABLE, 1=REQUESTED, 2=BORROWED
+    int memberId;   // 0 if available, else member ID
 } Book;
 
 extern Book books[MAX_BOOKS];
-extern int numberOfBooks;
+extern int bookCount;
 
-void addBooks(void);
-void listAllBooks(void);
-Book findBookByID(int id);
-void findBooksByName(const char *name);
-void findBooksByAuthor(const char *author);
-void findBooksByYear(int year);
-void printBookDetails(Book book);
-void fixBookDetails(int index);
+// core book functions (book.c)
+int findBookIndexById(int id);
+int findBooksByName(const char *name, int *results, int maxResults);
+int findBooksByAuthor(const char *author, int *results, int maxResults);
+int findBooksByYear(int year, int *results, int maxResults);
+int isBookIdExists(int id);
+void printBookShort(int index);
+void printBookDetailed(int index);
+const char* getBookStateName(int state);
 
-#endif // BOOK_H
+// find book functions (findBook.c)
+int findBook(int selectMode);   // selectMode=1 for selection, 0 for display
+
+#endif

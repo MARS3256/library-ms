@@ -8,4 +8,5 @@
 .vscode/
 
 # Compiled binaries
-lms
+lms/
+.github/

@@ -1,113 +1,57 @@
+// ui.c - Common UI functions
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 #include "ui.h"
-#include "book.h"
 
-void clearInputBuffer(void)
-{
+void clearInputBuffer(void) {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF)
-    {
-    }
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
-void showTitle(void)
-{
+void clearScreen(void) {
 #ifdef _WIN32
     system("cls");
 #else
     system("clear");
 #endif
-    
-    printf("Library Management System\n");
-    printf("--------------------------\n");
 }
 
-void proceed(void)
-{
-    printf("Press enter to continue...");
+void showTitle(void) {
+    clearScreen();
+    printf("Library Management System\n");
+    printf("--------------------------\n\n");
+}
+
+void pressEnter(void) {
+    printf("\nPress Enter to continue...");
     getchar();
 }
 
-void searchBook(void)
-{
-    showTitle();
-    printf("Search by:\n");
-    printf("1. ID\n");
-    printf("2. Name\n");
-    printf("3. Author\n");
-    printf("4. Year\n");
-    printf("Choice: ");
-    int choice;
-    if (scanf("%d", &choice) != 1)
-    {
+// confirm action with y/n, returns 1 for yes, 0 for no
+int confirmAction(const char *message) {
+    printf("%s (y/n): ", message);
+    char c = getchar();
+    clearInputBuffer();
+    return (c == 'y' || c == 'Y');
+}
+
+// get integer input with prompt
+int getIntInput(const char *prompt) {
+    int value;
+    printf("%s", prompt);
+    while (scanf("%d", &value) != 1) {
         clearInputBuffer();
-        printf("Invalid choice.\n");
-        proceed();
-        return;
+        printf("Invalid input. %s", prompt);
     }
     clearInputBuffer();
+    return value;
+}
 
-    switch (choice)
-    {
-    case 1:
-    {
-        showTitle();
-        int id;
-        printf("Enter ID: ");
-        if (scanf("%d", &id) != 1)
-        {
-            clearInputBuffer();
-            printf("Invalid ID.\n");
-            proceed();
-            return;
-        }
-        clearInputBuffer();
-        Book book = findBookByID(id);
-        printBookDetails(book);
-        break;
-    }
-    case 2:
-    {
-        showTitle();
-        char name[50];
-        printf("Enter name: ");
-        fgets(name, sizeof(name), stdin);
-        name[strcspn(name, "\n")] = '\0';
-        findBooksByName(name);
-        break;
-    }
-    case 3:
-    {
-        showTitle();
-        char author[50];
-        printf("Enter author: ");
-        fgets(author, sizeof(author), stdin);
-        author[strcspn(author, "\n")] = '\0';
-        findBooksByAuthor(author);
-        break;
-    }
-    case 4:
-    {
-        showTitle();
-        int year;
-        printf("Enter year: ");
-        if (scanf("%d", &year) != 1)
-        {
-            clearInputBuffer();
-            printf("Invalid year.\n");
-            proceed();
-            return;
-        }
-        clearInputBuffer();
-        findBooksByYear(year);
-        break;
-    }
-    default:
-        printf("Unknown option.\n");
-        proceed();
-        break;
-    }
+// get string input with prompt
+void getStringInput(const char *prompt, char *buffer, int size) {
+    printf("%s", prompt);
+    fgets(buffer, size, stdin);
+    buffer[strcspn(buffer, "\n")] = '\0';
 }
