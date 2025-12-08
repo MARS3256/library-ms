@@ -6,6 +6,9 @@
 # mmd diagram files
 *.mmd
 
+data/queue_log.txt
+data/simulation_log.txt
+
 # VS Code settings
 .vscode/
 
