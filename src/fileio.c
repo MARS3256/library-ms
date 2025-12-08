@@ -96,3 +96,40 @@ void loadMembers(const char *path) {
     fclose(fp);
     releaseLock();
 }
+
+// silent save books only (no print)
+void saveBooksOnly(void) {
+    acquireLock();
+    FILE *fp = fopen("data/catalog.txt", "w");
+    if (!fp) {
+        releaseLock();
+        return;
+    }
+    
+    fprintf(fp, "%d\n", bookCount);
+    for (int i = 0; i < bookCount; i++) {
+        fprintf(fp, "%d|%s|%s|%d|%d|%d\n",
+            books[i].id, books[i].name, books[i].author,
+            books[i].year, books[i].state, books[i].memberId);
+    }
+    fclose(fp);
+    releaseLock();
+}
+
+// silent save members only (no print)
+void saveMembersOnly(void) {
+    acquireLock();
+    FILE *fp = fopen("data/members.txt", "w");
+    if (!fp) {
+        releaseLock();
+        return;
+    }
+    
+    fprintf(fp, "%d\n", memberCount);
+    for (int i = 0; i < memberCount; i++) {
+        fprintf(fp, "%d|%s|%s\n",
+            members[i].id, members[i].name, members[i].dept);
+    }
+    fclose(fp);
+    releaseLock();
+}

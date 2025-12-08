@@ -4,6 +4,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void directIssuePage(void) {
     showTitle();
@@ -75,6 +76,7 @@ void directIssuePage(void) {
         books[bookIdx].state = STATE_BORROWED;
         books[bookIdx].memberId = members[memberIdx].id;
         releaseLock();
+        saveBooksOnly();
         printf("Book issued successfully.\n");
     } else {
         printf("Cancelled.\n");

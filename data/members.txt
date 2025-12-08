@@ -1,4 +1,21 @@
-3
-1|John Doe|CSE
-2|Jane Smith|EEE
-3|Bob Wilson|BBA
+20
+1|Sajid|CSE
+2|Jeem|CSE
+3|Ranjinee|CSE
+4|Sami|CSE
+5|Fatima|BBA
+6|Hassan|BBA
+7|Aisha|BBA
+8|Ibrahim|BBA
+9|Rafi|BBA
+10|Omar|EEE
+11|Khadija|EEE
+12|Monem|EEE
+13|Maryam|EEE
+14|Yusuf|EEE
+15|Amina|MSJ
+16|Hamza|MSJ
+17|Safiya|MSJ
+18|Tariq|MSJ
+19|Nadia|MSJ
+20|Rizwan|CSE

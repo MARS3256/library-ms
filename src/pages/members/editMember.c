@@ -5,6 +5,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void editMemberPage(void) {
     showTitle();
@@ -56,6 +57,7 @@ void editMemberPage(void) {
         releaseLock();
     }
     
+    saveMembersOnly();
     printf("\nMember updated successfully.\n");
     pressEnter();
 }

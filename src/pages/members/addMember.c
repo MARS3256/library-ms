@@ -5,6 +5,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void addMemberPage(void) {
     showTitle();
@@ -47,6 +48,7 @@ void addMemberPage(void) {
         acquireLock();
         members[memberCount++] = newMember;
         releaseLock();
+        saveMembersOnly();
         printf("Member added successfully.\n");
     } else {
         printf("Cancelled.\n");

@@ -19,6 +19,7 @@ void manageBooksPage(void);
 void manageMembersPage(void);
 void issueBooksPage(void);
 void saveLoadDataPage(void);
+void runSimulationPage(void);
 
 int main(void) {
     // initialize semaphore lock
@@ -36,7 +37,8 @@ int main(void) {
         printf("2. Manage Members\n");
         printf("3. Issue Books\n");
         printf("4. Save/Load Data\n");
-        printf("5. Exit\n\n");
+        printf("5. Run FCFS Simulation\n");
+        printf("6. Exit\n\n");
         
         choice = getIntInput("Choice: ");
         
@@ -54,6 +56,9 @@ int main(void) {
                 saveLoadDataPage();
                 break;
             case 5:
+                runSimulationPage();
+                break;
+            case 6:
                 // save before exit
                 saveBooks("data/catalog.txt");
                 saveMembers("data/members.txt");

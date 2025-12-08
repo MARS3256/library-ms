@@ -1,12 +1,14 @@
 # Build artifacts
 *.obj
-*.exe
 *.pdb
 *.ilk
+
+# mmd diagram files
+*.mmd
 
 # VS Code settings
 .vscode/
 
 # Compiled binaries
-lms/
+old/
 .github/

@@ -5,6 +5,7 @@
 #include "book.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void addBookPage(void) {
     showTitle();
@@ -45,6 +46,7 @@ void addBookPage(void) {
         acquireLock();
         books[bookCount++] = newBook;
         releaseLock();
+        saveBooksOnly();
         printf("Book added successfully.\n");
     } else {
         printf("Cancelled.\n");

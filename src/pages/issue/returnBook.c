@@ -4,6 +4,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void returnBookPage(void) {
     showTitle();
@@ -56,6 +57,7 @@ void returnBookPage(void) {
         books[bookIdx].state = STATE_AVAILABLE;
         books[bookIdx].memberId = 0;
         releaseLock();
+        saveBooksOnly();
         printf("Book returned. Status set to AVAILABLE.\n");
     } else {
         printf("Cancelled.\n");

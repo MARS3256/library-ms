@@ -5,6 +5,7 @@
 #include "book.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void editBookPage(void) {
     showTitle();
@@ -65,6 +66,7 @@ void editBookPage(void) {
         releaseLock();
     }
     
+    saveBooksOnly();
     printf("\nBook updated successfully.\n");
     pressEnter();
 }

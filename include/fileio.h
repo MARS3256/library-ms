@@ -7,4 +7,8 @@ void loadBooks(const char *path);
 void saveMembers(const char *path);
 void loadMembers(const char *path);
 
+// silent save functions (no print, immediate write)
+void saveBooksOnly(void);
+void saveMembersOnly(void);
+
 #endif

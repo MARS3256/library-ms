@@ -39,6 +39,10 @@ echo Compiling Full Modular Version...
     src/member.c ^
     src/fileio.c ^
     src/sync.c ^
+    src/simulation/generator.c ^
+    src/simulation/action.c ^
+    src/simulation/simulator.c ^
+    src/pages/runSimulation.c ^
     src/pages/books/manageBooks.c ^
     src/pages/books/findBook.c ^
     src/pages/books/listBooks.c ^
@@ -55,18 +59,17 @@ echo Compiling Full Modular Version...
     src/pages/issue/approveRequests.c ^
     src/pages/issue/returnBook.c ^
     src/pages/issue/directIssue.c ^
-    src/pages/data/saveLoadData.c
+    src/pages/data/saveLoadData.c 2>&1
 goto check
 
 :check
-if %ERRORLEVEL% EQU 0 (
+if exist lms.exe (
     echo.
     echo Build successful!
     echo Run: lms.exe
 ) else (
     echo.
-    echo Build failed! Make sure MinGW GCC is installed.
-    echo Install with: choco install mingw
+    echo Build failed! Check errors above.
 )
 
 :end

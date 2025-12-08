@@ -1,11 +1,72 @@
-1|Solo Leveling|Chugong|2016|0|0
-2|The Fault in Our Stars|John Green|2012|0|0
-3|Looking for Alaska|John Green|2005|0|0
-4|Paper Towns|John Green|2008|0|0
-5|One Piece|Eiichiro Oda|1997|0|0
-6|Naruto|Masashi Kishimoto|1999|0|0
-7|Attack on Titan|Hajime Isayama|2009|0|0
-8|Harry Potter|J.K. Rowling|1997|0|0
-9|The Alchemist|Paulo Coelho|1988|0|0
+71
 10|1984|George Orwell|1949|0|0
+51|1984|George Orwell|1949|0|0
+17|Animal Farm|George Orwell|1945|0|0
+53|Animal Farm|George Orwell|1945|0|0
+7|Attack on Titan|Hajime Isayama|2009|0|0
+48|Attack on Titan|Hajime Isayama|2009|0|0
+70|Attack on Titan|Hajime Isayama|2009|0|0
+21|Batman The Dark Knight Returns|Frank Miller|1986|0|0
+20|Batman Year One|Frank Miller|1987|0|0
+54|Batman Year One|Frank Miller|1987|0|0
+35|Berserk|Kentaro Miura|1989|0|0
+62|Berserk|Kentaro Miura|1989|0|0
+15|Bidrohi|Kazi Nazrul Islam|1922|0|0
+32|Chainsaw Man|Tatsuki Fujimoto|2018|0|0
+60|Chainsaw Man|Tatsuki Fujimoto|2018|0|0
+28|Death Note|Tsugumi Ohba|2003|0|0
+58|Death Note|Tsugumi Ohba|2003|0|0
+71|Death Note|Tsugumi Ohba|2003|0|0
+27|Demon Slayer|Koyoharu Gotouge|2016|0|0
+57|Demon Slayer|Koyoharu Gotouge|2016|0|0
+19|Eleven Minutes|Paulo Coelho|2003|0|0
+26|Frieren Beyond Journeys End|Kanehito Yamada|2020|0|0
+29|Fullmetal Alchemist|Hiromu Arakawa|2001|0|0
+12|Gitanjali|Rabindranath Tagore|1910|0|0
+13|Gora|Rabindranath Tagore|1910|0|0
+8|Harry Potter|J.K. Rowling|1997|0|0
+49|Harry Potter|J.K. Rowling|1997|0|0
+67|Harry Potter|J.K. Rowling|1997|0|0
+31|Jujutsu Kaisen|Gege Akutami|2018|0|0
+3|Looking for Alaska|John Green|2005|0|0
+44|Looking for Alaska|John Green|2005|0|0
+39|Mistborn|Brandon Sanderson|2006|0|0
+37|Monster|Naoki Urasawa|1994|0|0
+63|Monster|Naoki Urasawa|1994|0|0
+30|My Hero Academia|Kohei Horikoshi|2014|0|0
+59|My Hero Academia|Kohei Horikoshi|2014|0|0
+6|Naruto|Masashi Kishimoto|1999|0|0
+47|Naruto|Masashi Kishimoto|1999|0|0
+69|Naruto|Masashi Kishimoto|1999|0|0
+5|One Piece|Eiichiro Oda|1997|0|0
+46|One Piece|Eiichiro Oda|1997|0|0
+68|One Piece|Eiichiro Oda|1997|0|0
+25|One Punch Man|ONE|2009|0|0
+56|One Punch Man|ONE|2009|0|0
+4|Paper Towns|John Green|2008|0|0
+45|Paper Towns|John Green|2008|0|0
 11|Spy X Family|Tatsuya Endo|2008|0|0
+52|Spy X Family|Tatsuya Endo|2008|2|13
+1|Solo Leveling|Chugong|2016|0|0
+42|Solo Leveling|Chugong|2016|0|0
+66|Solo Leveling|Chugong|2016|0|0
+24|A Study in Scarlet|Arthur Conan Doyle|1887|0|0
+9|The Alchemist|Paulo Coelho|1988|0|0
+50|The Alchemist|Paulo Coelho|1988|0|0
+22|The Adventures of Sherlock Holmes|Arthur Conan Doyle|1892|0|0
+55|The Adventures of Sherlock Holmes|Arthur Conan Doyle|1892|0|0
+2|The Fault in Our Stars|John Green|2012|0|0
+43|The Fault in Our Stars|John Green|2012|0|0
+41|The Hobbit|J.R.R. Tolkien|1937|0|0
+14|The Home and the World|Rabindranath Tagore|1916|0|0
+23|The Hound of the Baskervilles|Arthur Conan Doyle|1902|0|0
+40|The Name of the Wind|Patrick Rothfuss|2007|0|0
+65|The Name of the Wind|Patrick Rothfuss|2007|0|0
+38|The Way of Kings|Brandon Sanderson|2010|0|0
+64|The Way of Kings|Brandon Sanderson|2010|0|0
+33|Tokyo Ghoul|Sui Ishida|2011|0|0
+61|Tokyo Ghoul|Sui Ishida|2011|0|0
+36|Vagabond|Takehiko Inoue|1998|0|0
+18|Veronika Decides to Die|Paulo Coelho|1998|0|0
+34|Vinland Saga|Makoto Yukimura|2005|0|0
+16|Agnibina|Kazi Nazrul Islam|1922|0|0

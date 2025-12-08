@@ -43,7 +43,7 @@ int getIntInput(const char *prompt) {
     printf("%s", prompt);
     while (scanf("%d", &value) != 1) {
         clearInputBuffer();
-        printf("Invalid input. %s", prompt);
+        printf("Invalid input. \n%s", prompt);
     }
     clearInputBuffer();
     return value;

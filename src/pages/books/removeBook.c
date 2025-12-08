@@ -3,6 +3,7 @@
 #include "book.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void removeBookPage(void) {
     showTitle();
@@ -36,6 +37,7 @@ void removeBookPage(void) {
         }
         bookCount--;
         releaseLock();
+        saveBooksOnly();
         printf("Book removed successfully.\n");
     } else {
         printf("Cancelled.\n");

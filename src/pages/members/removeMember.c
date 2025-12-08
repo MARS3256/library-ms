@@ -3,6 +3,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void removeMemberPage(void) {
     showTitle();
@@ -36,6 +37,7 @@ void removeMemberPage(void) {
         }
         memberCount--;
         releaseLock();
+        saveMembersOnly();
         printf("Member removed successfully.\n");
     } else {
         printf("Cancelled.\n");

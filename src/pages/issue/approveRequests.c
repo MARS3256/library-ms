@@ -4,6 +4,7 @@
 #include "member.h"
 #include "ui.h"
 #include "sync.h"
+#include "fileio.h"
 
 void approveRequestsPage(void) {
     showTitle();
@@ -55,6 +56,7 @@ void approveRequestsPage(void) {
         acquireLock();
         books[bookIdx].state = STATE_BORROWED;
         releaseLock();
+        saveBooksOnly();
         printf("Request approved. Book marked as BORROWED.\n");
     } else {
         printf("Cancelled.\n");
