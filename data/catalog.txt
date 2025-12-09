@@ -1,9 +1,9 @@
 71
-10|1984|George Orwell|1949|0|0
+10|1984|George Orwell|1949|1|15
 51|1984|George Orwell|1949|0|0
 17|Animal Farm|George Orwell|1945|0|0
 53|Animal Farm|George Orwell|1945|0|0
-7|Attack on Titan|Hajime Isayama|2009|0|0
+7|Attack on Titan|Hajime Isayama|2009|1|4
 48|Attack on Titan|Hajime Isayama|2009|0|0
 70|Attack on Titan|Hajime Isayama|2009|0|0
 21|Batman The Dark Knight Returns|Frank Miller|1986|0|0
@@ -41,12 +41,12 @@
 5|One Piece|Eiichiro Oda|1997|0|0
 46|One Piece|Eiichiro Oda|1997|0|0
 68|One Piece|Eiichiro Oda|1997|0|0
-25|One Punch Man|ONE|2009|0|0
+25|One Punch Man|ONE|2009|2|13
 56|One Punch Man|ONE|2009|0|0
 4|Paper Towns|John Green|2008|0|0
 45|Paper Towns|John Green|2008|0|0
 11|Spy X Family|Tatsuya Endo|2008|0|0
-52|Spy X Family|Tatsuya Endo|2008|2|13
+52|Spy X Family|Tatsuya Endo|2008|0|0
 1|Solo Leveling|Chugong|2016|0|0
 42|Solo Leveling|Chugong|2016|0|0
 66|Solo Leveling|Chugong|2016|0|0
@@ -60,13 +60,13 @@
 41|The Hobbit|J.R.R. Tolkien|1937|0|0
 14|The Home and the World|Rabindranath Tagore|1916|0|0
 23|The Hound of the Baskervilles|Arthur Conan Doyle|1902|0|0
-40|The Name of the Wind|Patrick Rothfuss|2007|0|0
+40|The Name of the Wind|Patrick Rothfuss|2007|2|18
 65|The Name of the Wind|Patrick Rothfuss|2007|0|0
 38|The Way of Kings|Brandon Sanderson|2010|0|0
 64|The Way of Kings|Brandon Sanderson|2010|0|0
 33|Tokyo Ghoul|Sui Ishida|2011|0|0
 61|Tokyo Ghoul|Sui Ishida|2011|0|0
 36|Vagabond|Takehiko Inoue|1998|0|0
-18|Veronika Decides to Die|Paulo Coelho|1998|0|0
+18|Veronika Decides to Die|Paulo Coelho|1998|2|14
 34|Vinland Saga|Makoto Yukimura|2005|0|0
-16|Agnibina|Kazi Nazrul Islam|1922|0|0
+16|Agnibina|Kazi Nazrul Islam|1922|2|7

@@ -15,3 +15,4 @@ data/simulation_log.txt
 # Compiled binaries
 old/
 .github/
+report/
